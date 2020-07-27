@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>python中的正则 | unravel211的技术专栏</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="python中的正则1.正则表达式:1)定义:正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为元字符）操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，模式描述在搜索文本时要匹配的一个或多个字符串。 本质就是做字符串的匹配工作。 2)正则表达">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中的正则">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/python%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99/index.html">
+<meta property="og:site_name" content="unravel211的技术专栏">
+<meta property="og:description" content="python中的正则1.正则表达式:1)定义:正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为元字符）操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，模式描述在搜索文本时要匹配的一个或多个字符串。 本质就是做字符串的匹配工作。 2)正则表达">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-07-07T00:15:28.067Z">
+<meta property="article:modified_time" content="2020-07-27T01:59:48.030Z">
+<meta property="article:author" content="邱泓语">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="unravel211的技术专栏" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">unravel211的技术专栏</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术的进步来源于分享</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python中的正则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/07/python%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99/" class="article-date">
+  <time datetime="2020-07-07T00:15:28.067Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python%E5%9F%BA%E7%A1%80/">python基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python中的正则
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python中的正则"><a href="#python中的正则" class="headerlink" title="python中的正则"></a>python中的正则</h1><h3 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1.正则表达式:"></a>1.正则表达式:</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1)定义:"></a>1)定义:</h4><p><em>正则表达式</em>是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为元字符）操作的一种<strong>逻辑公式</strong>，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个<strong>“规则字符串”</strong>，这个“规则字符串”用来表达对字符串的一种<code>过滤逻辑</code>。正则表达式是一种文本模式，模式描述在搜索文本时要匹配的一个或多个字符串。</p>
+<p>本质就是做字符串的匹配工作。</p>
+<h4 id="2-正则表达式的语法："><a href="#2-正则表达式的语法：" class="headerlink" title="2)正则表达式的语法："></a>2)正则表达式的语法：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fullmatch(正则表达式, 字符串)  - 让正则表达式式和字符串进行完全匹配，如果匹配失败结果是<span class="literal">None</span></span><br><span class="line">js的正则： /正则表达式/</span><br><span class="line">python的正则： <span class="string">r'正则表达式'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>一、匹配符号：</strong></p>
+<ul>
+<li>1)普通字符  –&gt;  表示字符本身</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'abc'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'abc'</span>)</span><br><span class="line">print(result) </span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 3), match='abc'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2).   –&gt;   匹配一个任意字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'.abc'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'+abc'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='+abc'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配一个长度是5的字符串，字符串中间三个字符是abc,第一个字符和最后一个字符任意</span></span><br><span class="line">re_str = <span class="string">r'.abc.'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'(abc+'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 5), match='(abc+'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配一个长度是3的任意字符串</span></span><br><span class="line">re_str = <span class="string">r'...'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'1c*'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 3), match='lc*'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3)\w  –&gt;   匹配任意一个数字、字母或者下划线(针对ASCII码表有效)（注意：用得不多,因为中文等字符也会被匹配）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'\wabc'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'8abc'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='8abc'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4)\d  –&gt;  匹配任意一个数字字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'\d+'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'123'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 3), match='123'&gt;</span></span><br><span class="line">re_str = <span class="string">r'\d+abc\d+'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'12abc89'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 7), match='12abc89'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>5)\s  –&gt;  匹配任意一个空白字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'\s\d..'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'\n9k/'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='\n9k/'&gt;</span></span><br><span class="line"></span><br><span class="line">re_str = <span class="string">r'\d+\s\d+'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'78 23'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 5), match='78 23'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>6) \D和\S</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">\字母  - 小写字母和对应的大写字母的功能相反</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">re_str = <span class="string">r'\dabc\D'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'8abc-'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 5), match='8abc-'&gt;</span></span><br><span class="line">re_str = <span class="string">r'\Sabc'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'=abc'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='=abc'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>7) [字符集]  –&gt;  匹配字符集中出现的任意一个字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">注意：一个[]只能匹配一个字符</span></span><br><span class="line"><span class="string">a.</span></span><br><span class="line"><span class="string">[abc123]  -  匹配 a、b、c、1、2、3 中任意一个字符</span></span><br><span class="line"><span class="string">b.</span></span><br><span class="line"><span class="string">[a-z]    -   匹配从字符a到字符z之间的任意一个字符(匹配任意一个小写字母)</span></span><br><span class="line"><span class="string">[A-Z]    -   匹配任意一个大写字母</span></span><br><span class="line"><span class="string">[a-zA-Z] -   匹配任意一个字母</span></span><br><span class="line"><span class="string">[0-9]    -   匹配任意一个数字字符</span></span><br><span class="line"><span class="string">[\u4e00-\u9fa5]   - 匹配任意一个中文字符</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">re_str = <span class="string">r'[cz+?]123'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'?123'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='?123'&gt;</span></span><br><span class="line"></span><br><span class="line">re_str = <span class="string">r'[\u4e00-\u9fa5]123'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'看123'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='看123'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># case1：判断输入手机号码是否合法:</span></span><br><span class="line">re_str = <span class="string">r'1[3-9]\d&#123;9&#125;'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'13598902763'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 11), match='13598902763'&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># []中-前面的字符编码值必须小于-后面的字符编码</span></span><br><span class="line"><span class="comment"># result = fullmatch(r'[a-0]abc', '0abc')</span></span><br><span class="line"><span class="comment"># []中-如果不在两个字符之间，-就没有特殊功能直接表达它本身</span></span><br><span class="line">result = fullmatch(<span class="string">r'[-09]abc'</span>, <span class="string">'-abc'</span>)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># case2：写一个正则表达式，要求可以匹配一个字符串：abc前面是一个数字、字母或者下划线</span></span><br><span class="line">re_str = <span class="string">r'[a-zA-Z\d_]abc'</span></span><br><span class="line">result = fullmatch(re_str, <span class="string">'_abc'</span>)</span><br><span class="line">print(result)</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='_abc'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>8)<em>[<em>^字符集</em>]</em>  –&gt;  取不在字符集中任意一个字符</li>
+</ul>
+<p><strong>二、检测符号：</strong></p>
+<ul>
+<li><p>1）\b  –&gt;  检测是否是单词的边界</p>
+<p><em>注意：检测类的符号不影响匹配的长度，只是在匹配成功的时候做进一步的检测</em></p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">单词边界：字符串开头、字符串结尾、凡是能区分出两个不同单词的符号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">message = <span class="string">'how are you?i am fine!thank you!'</span></span><br><span class="line">re_str = <span class="string">r'\d+.\b\d+'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'56=89'</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2) ^ –&gt;  检测^所在的位置是否是字符串开头</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'\d^abc'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'1abc'</span>))</span><br><span class="line"></span><br><span class="line">re_str = <span class="string">r'^\d+'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'678'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 3), match='678'&gt;</span></span><br><span class="line">re_str = <span class="string">r'^\d+'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'678'</span>))</span><br><span class="line">print(search(re_str, <span class="string">'shdj39极客时间238u丄282='</span>))</span><br><span class="line"><span class="comment"># None</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3)$  –&gt;  检测$所在的位置是否是字符串结尾</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'\d+$'</span></span><br><span class="line">print(search(re_str, <span class="string">'时代峰峻78暗示法23沙发89'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(13, 14), match='2'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>三.匹配次数:</strong></p>
+<ul>
+<li>1）*  –&gt;  匹配0次或多次</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">字符*    -  字符出现0次或多次</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">re_str = <span class="string">r'a*'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'aaa'</span>))</span><br><span class="line"></span><br><span class="line">re_str = <span class="string">r'\d*'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'478923'</span>))</span><br><span class="line"></span><br><span class="line">re_str = <span class="string">r'123[a-z]*'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'123ukl'</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2) ? –&gt;  匹配0次或1次</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'\d?abc'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'0abc'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 4), match='0abc'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3){}</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">&#123;N&#125;   -  匹配N次</span></span><br><span class="line"><span class="string">&#123;M,N&#125;  - 匹配M到N次</span></span><br><span class="line"><span class="string">&#123;M,&#125;   - 匹配至少M次</span></span><br><span class="line"><span class="string">&#123;,N&#125;   - 匹配最多N次（0~N次）</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">re_str = <span class="string">r'\d&#123;4&#125;abc'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'6723abc'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 7), match='6723abc'&gt;</span></span><br><span class="line">re_str = <span class="string">r'a&#123;2,5&#125;123'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'aaaaa123'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 8), match='aaaaa123'&gt;</span></span><br><span class="line"></span><br><span class="line">re_str = <span class="string">r'a&#123;2,&#125;123'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'aaaaaaaa123'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 11), match='aaaaaaaa123'&gt;</span></span><br><span class="line"></span><br><span class="line">re_str = <span class="string">r'a&#123;,2&#125;123'</span></span><br><span class="line">print(fullmatch(re_str, <span class="string">'aa123'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(0, 5), match='aa123'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>四、贪婪和非贪婪：</strong></p>
+<p><em>在匹配次数不确定的情况下，匹配模式分为两种：贪婪和非贪婪</em></p>
+<ul>
+<li><p>a.贪婪：默认都是贪婪的（在能匹配到的前提下匹配次数尽可能多）</p>
+<pre><code>*、+、?, {M,N}、{M,}、{,N}</code></pre></li>
+<li><p>b.非贪婪：(在能匹配到的前提下匹配次数尽可能少)在匹配次数不确定的时候，次数后面加问号，匹配就是非贪婪的</p>
+<pre><code>*?、+？、??、{M,N}?、{M,}?、{,N}?</code></pre></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">re_str = <span class="string">r'\d&#123;2,&#125;'</span></span><br><span class="line">print(search(re_str, <span class="string">'护士227382abc你好！'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(2, 8), match='227382'&gt;</span></span><br><span class="line">re_str = <span class="string">r'\d&#123;2,&#125;?'</span></span><br><span class="line">print(search(re_str, <span class="string">'护士227382abc你好！'</span>))</span><br><span class="line"><span class="comment"># &lt;_sre.SRE_Match object; span=(2, 4), match='22'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-re模块"><a href="#2-re模块" class="headerlink" title="2.re模块"></a>2.re模块</h3><p>re模块:python提供的专门使用正则表达式的相关的函数的模块</p>
+<p>以下仅列出常用的一部分相关方法</p>
+<p><strong>1)re.compile(正则表达式) -&gt; 编译正则表达式,创建正则表达式对象:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将正则表达式用编译的方式存储</span></span><br><span class="line">re_obj = compile(<span class="string">r'\d&#123;3&#125;'</span>)</span><br><span class="line">print(re_obj.fullmatch(<span class="string">'234'</span>))</span><br><span class="line">print(re_obj.search(<span class="string">'dasfasfasfasf'</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong>2)匹配相关:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">1)fullmatch(正则表达式,字符串) -&gt; 让整个字符串和正则表达式进行匹配</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2)match(正则表达式,字符串) -&gt; 匹配字符串开头</span></span><br><span class="line"><span class="string">如果匹配不到结果是None,如果匹配成功,结果就是匹配对象</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3)查找相关:search,findall,finditer</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">1)search(正则表达式,字符串) -&gt; 在字符串中查找第一个能和正则表达式匹配的子串.如果找到返回匹配对象;找不到返回None</span></span><br><span class="line"><span class="string">2)findall(正则表达式,字符串) -&gt; 获取字符串中所有满足正则表达式的子串,返回一个列表,列表中的元素是字符串</span></span><br><span class="line"><span class="string">3)finditer(正则表达式,字符串) -&gt; 获取字符串中所有满足正则表达式的子串,返回一个迭代器,迭代器中的元素是匹配对象</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">result = findall(<span class="string">r'\d+'</span>, <span class="string">'1231sdd21231d5s515'</span>)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># findall正则中如果有单个分组,只获取分组匹配到的内容</span></span><br><span class="line">result = findall(<span class="string">r'(\d+)[a-z]'</span>, <span class="string">'s15a999d613as'</span>)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多个分组,返回的是列表,列表中是元组</span></span><br><span class="line">result = findall(<span class="string">r'(\d+)([a-z])'</span>, <span class="string">'s15a999d613as'</span>)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># finditer</span></span><br><span class="line"><span class="keyword">from</span> re <span class="keyword">import</span> split, sub, finditer</span><br><span class="line">str2 = <span class="string">'9h3jabc===9k2mabc9293h0oabc==!!!'</span></span><br><span class="line">result = finditer(<span class="string">r'((\d[a-zA-Z])&#123;2&#125;)abc'</span>, str2)</span><br><span class="line"><span class="comment"># print(list(result))</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> result:</span><br><span class="line">    print(x.group(<span class="number">1</span>))</span><br><span class="line"><span class="comment"># 9h3j</span></span><br><span class="line"><span class="comment"># 9k2m</span></span><br><span class="line"><span class="comment"># 3h0o</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>4) 切割:split</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># split(正则表达式, 字符串)  - 将字符串中能和正则表达式匹配的子串作为切割点，对字符串进行切割。返回值是列表，列表中的元素是字符串</span></span><br><span class="line"><span class="comment"># split(正则表达式, 字符串, 次数)  - 指定切割次数</span></span><br><span class="line">str1 = <span class="string">'and123=hu123aaa456klk98!ll7hu123oop'</span></span><br><span class="line">result = split(<span class="string">r'\d+'</span>, str1)</span><br><span class="line">print(result)    <span class="comment"># ['and', '=hu', 'aaa', 'klk', '!ll', 'hu', 'oop']</span></span><br><span class="line"></span><br><span class="line">result = split(<span class="string">r'\d+'</span>, str1, <span class="number">3</span>)</span><br><span class="line">print(result)     <span class="comment"># ['and', '=hu', 'aaa', 'klk98!ll7hu123oop']</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>5)替换:sub</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sub(正则表达式, 字符串1, 字符串2)  -  将字符串2中能和正则表达式匹配的子串全部替换成字符串1</span></span><br><span class="line"><span class="comment"># sub(正则表达式, 字符串1, 字符串2, 次数)   -  限制替换次数</span></span><br><span class="line">str1 = <span class="string">'and123=hu123aaa456klk98!ll7hu123oop'</span></span><br><span class="line">new_str1 = sub(<span class="string">r'\d+'</span>, <span class="string">'+'</span>, str1)</span><br><span class="line">print(new_str1)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/07/python%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99/" data-id="ckd3v0py20000z0vm26t2enm4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/27/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python 函数式编程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python字符串的总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python%E5%9F%BA%E7%A1%80/">python基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/27/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">python 函数式编程</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/07/python%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99/">python中的正则</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/07/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%80%BB%E7%BB%93/">python字符串的总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 邱泓语<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
